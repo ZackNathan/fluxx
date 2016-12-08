@@ -16,6 +16,7 @@ Keeper.prototype.actionAtCardPlayed = function(){
     //Add card to keeper pile on the table
 };
 
+//List of keepers
 var brain = new Keeper("The Brain");
 var chocolate = new Keeper("Chocolate");
 var cookies = new Keeper("Cookies");
@@ -45,8 +46,6 @@ var coffee = new Keeper("Coffee");
 
 
 
-
-
 function Creeper(name) {
     Card.call(this, name)
 };
@@ -55,6 +54,8 @@ Creeper.prototype.constructor = Creeper;
 Creeper.prototype.actionAtCardDrawn = function(){
     //Add card to creeper pile on table, and draw a replacement card
 };
+
+//List of creepers
 
 var war = new Creeper("War");
 var death = new Creeper("Death");
@@ -75,9 +76,8 @@ pollution.actionAtTurnStart = function(){
 };
 var nightmares = new Creeper("Nightmares")
 nightmares.actionAtTurnStart = function(){
-    //If you also have sleep, discard both
+    //If you also have sleep or dreams, discard both
 };
-
 
 
 
@@ -91,6 +91,8 @@ Goal.prototype.condition = function(){};
 Goal.prototype.actionAtCardPlayed = function(){
     //Change the active goal to this card
 };
+
+//List of goals
 
 var tenInHand = new Goal("10 Cards in Hand");
 tenInHand.condition = function(){
@@ -279,6 +281,8 @@ NewRule.prototype.actionAtCardPlayed = function(){
     //Add this rule to the set of active rules
 };
 
+//List of new rules
+
 var draw2 = new NewRule("Draw 2")
 draw2.rule = function(){
     //Change base draw amount to 2
@@ -390,13 +394,13 @@ secretTable.rule = function(){
 
 
 
-
-
 function Action(name) {
     Card.call(this, name)
 };
 Action.prototype = Object.create(Card.prototype);
 Action.prototype.constructor = Action;
+
+//List of actions
 
 var jackpot = new Action("Jackpot!")
 jackpot.actionAtCardPlayed = function(){
